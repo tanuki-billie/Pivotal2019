@@ -25,12 +25,19 @@ namespace ElementStudio.Pivotal
         [Tooltip("The player's records for this level, containing their best time and all their completion times.")]
         public LevelRecords records;
 
+        [Header("Currenet State")]
+        public LevelState currentLevelState = LevelState.Beginning;
+        public bool isPaused = false;
+
         [HideInInspector]
         public bool timeRunning = false;
         public float currentTiming = 0f;
+        public static Level instance;
 
         void Awake()
         {
+            if (instance != null) Destroy(this.gameObject);
+            instance = this;
             records = LevelRecords.Load(saveName, communityLevel, levelAuthor);
             if (float.IsNaN(records.recordTime))
             {
@@ -42,6 +49,7 @@ namespace ElementStudio.Pivotal
         void StartLevel()
         {
             timeRunning = true;
+            currentLevelState = LevelState.Playing;
         }
 
         void Update()
@@ -61,6 +69,12 @@ namespace ElementStudio.Pivotal
                 records.recordTime = currentTiming;
             }
             records.Save(saveName, communityLevel, levelAuthor);
+        }
+
+        //For debug purposes only
+        void OnGUI()
+        {
+            GUI.Box(new Rect(20, 20, 200, 24), "Current game state: " + currentLevelState);
         }
     }
 
@@ -105,5 +119,12 @@ namespace ElementStudio.Pivotal
             recordTime = bestTime;
             this.completionTimes = completionTimes;
         }
+    }
+
+    public enum LevelState
+    {
+        Beginning,
+        Playing,
+        Finished
     }
 }

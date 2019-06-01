@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2584269258029717354}
   - component: {fileID: 2584269258029717353}
   - component: {fileID: 2584269258029717350}
+  - component: {fileID: 701097163}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2584269258029717356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a653af60f812e48b8d2c2b210348d8, type: 3}
   m_Name: 
@@ -151,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &2584269258029717350
 MonoBehaviour:
@@ -213,6 +214,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   totalHorizontalRays: 2
   totalVerticalRays: 8
+--- !u!114 &701097163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584269258029717356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0d64be1c1a1b5409a5d03888a09c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToGrow: 2
 --- !u!1 &2584269258878106906
 GameObject:
   m_ObjectHideFlags: 0
