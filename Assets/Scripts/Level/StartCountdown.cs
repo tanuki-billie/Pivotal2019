@@ -7,7 +7,6 @@ namespace ElementStudio.Pivotal
     {
         public GameObject playerInstance;
         public GameUIManager gameUIManager;
-        [HideInInspector]
         public GameObject playerReference;
 
         private float timer = 5.0f;
@@ -27,6 +26,12 @@ namespace ElementStudio.Pivotal
             }
             currentTimer = timer;
             playerReference = Instantiate(playerInstance, Vector2.zero, Quaternion.identity);
+
+        }
+
+        void Start()
+        {
+            Level.instance.playerReference = playerReference;
         }
 
         void Update()
@@ -36,11 +41,33 @@ namespace ElementStudio.Pivotal
             {
                 StartGame();
             }
+            else if (currentTimer <= 1f)
+            {
+                gameUIManager.CompleteCountdown(gameUIManager.countdown2Text);
+                gameUIManager.DoCountdown(gameUIManager.countdown1Text);
+            }
+            else if (currentTimer <= 2f)
+            {
+                gameUIManager.CompleteCountdown(gameUIManager.countdown3Text);
+                gameUIManager.DoCountdown(gameUIManager.countdown2Text);
+            }
+            else if (currentTimer <= 3f)
+            {
+                gameUIManager.CompleteCountdown(gameUIManager.countdownGetReadyText);
+                gameUIManager.DoCountdown(gameUIManager.countdown3Text);
+            }
+            else
+            {
+                gameUIManager.DoCountdown(gameUIManager.countdownGetReadyText);
+            }
         }
 
         void StartGame()
         {
-
+            Level.instance.StartLevel();
+            gameUIManager.CompleteCountdown(gameUIManager.countdown1Text);
+            gameUIManager.DoGo();
+            Destroy(this);
         }
     }
 }

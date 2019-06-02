@@ -12,26 +12,35 @@ namespace ElementStudio.Pivotal
 
         [Header("Timer")]
         public RectTransform timerText;
+        TweenCallback endGo;
 
         void TurnOnTimer()
         {
             timerText.gameObject.SetActive(true);
         }
 
-        void DoCountdown(RectTransform target, float scale = 1.2f)
+        public void DoCountdown(RectTransform target, float scale = 1.2f)
         {
             target.gameObject.SetActive(true);
         }
 
-        void CompleteCountdown(RectTransform target)
+        public void CompleteCountdown(RectTransform target)
         {
             target.gameObject.SetActive(false);
         }
 
-        void DoGo(float shakeFactor = 0.25f)
+        public void DoGo(float shakeFactor = 0.25f)
         {
+            TurnOnTimer();
+            endGo += EndGo;
             countdownGoText.gameObject.SetActive(true);
-            Camera.main.transform.DOShakePosition(0.1f, shakeFactor);
+            Camera.main.transform.DOShakePosition(0.3f, shakeFactor).OnComplete(endGo);
+
+        }
+
+        void EndGo()
+        {
+            countdownGoText.gameObject.SetActive(false);
         }
     }
 }
