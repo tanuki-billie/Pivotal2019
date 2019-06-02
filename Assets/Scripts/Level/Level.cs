@@ -27,6 +27,8 @@ namespace ElementStudio.Pivotal
 
         [HideInInspector]
         public bool timeRunning = false;
+        [HideInInspector]
+        public bool newRecord = false;
         public float currentTiming = 0f;
         public static Level instance;
 

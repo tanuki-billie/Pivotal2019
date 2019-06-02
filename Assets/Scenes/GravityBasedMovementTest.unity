@@ -160,6 +160,7 @@ MonoBehaviour:
   currentLevelState: 0
   isPaused: 0
   timeRunning: 0
+  newRecord: 0
   currentTiming: 0
   playerReference: {fileID: 0}
 --- !u!4 &296242516

@@ -20,6 +20,7 @@ namespace ElementStudio.Pivotal
             {
                 records.recordTime = time;
                 Debug.Log("New record! Record: " + time + "s");
+                Level.instance.newRecord = true;
             }
             records.Save(saveName, communityLevel, levelAuthor);
         }

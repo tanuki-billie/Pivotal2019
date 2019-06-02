@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using DG.Tweening;
 
 namespace ElementStudio.Pivotal
@@ -9,10 +10,26 @@ namespace ElementStudio.Pivotal
         [Header("Countdown")]
         public RectTransform countdownGetReadyText;
         public RectTransform countdownGoText, countdown3Text, countdown2Text, countdown1Text;
+        public CompletionMenu completionMenu;
+        private EventSystem eventSystem;
 
         [Header("Timer")]
         public RectTransform timerText;
         TweenCallback endGo;
+
+        void Awake()
+        {
+            eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+        }
+
+        void Update()
+        {
+            if (Level.instance.currentLevelState == LevelState.Finished)
+            {
+                ShowCompletionMenu();
+                this.enabled = false;
+            }
+        }
 
         void TurnOnTimer()
         {
@@ -22,6 +39,7 @@ namespace ElementStudio.Pivotal
         public void DoCountdown(RectTransform target, float scale = 1.2f)
         {
             target.gameObject.SetActive(true);
+            target.DOScale(new Vector3(scale, scale, 1f), 1f);
         }
 
         public void CompleteCountdown(RectTransform target)
@@ -41,6 +59,11 @@ namespace ElementStudio.Pivotal
         void EndGo()
         {
             countdownGoText.gameObject.SetActive(false);
+        }
+
+        public void ShowCompletionMenu()
+        {
+            completionMenu.gameObject.SetActive(true);
         }
     }
 }
