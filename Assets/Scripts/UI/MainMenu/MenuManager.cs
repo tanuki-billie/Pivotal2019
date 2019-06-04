@@ -31,6 +31,11 @@ namespace ElementStudio.Pivotal
             currentDialogBox = Instantiate(dialogPrefab, Vector3.zero, Quaternion.identity, transform).GetComponent<DialogBox>();
         }
 
+        public void OpenLevelSelect(GameObject levelSelectPrefab)
+        {
+            Instantiate(levelSelectPrefab, Vector3.zero, Quaternion.identity, transform);
+        }
+
         public void Quit()
         {
             Application.Quit(0);
