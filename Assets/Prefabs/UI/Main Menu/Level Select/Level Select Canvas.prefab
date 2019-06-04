@@ -383,12 +383,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsToSelect:
-  - levelName: Dab on the haters!
+  - levelName: Test Level 1
     buildIndex: 1
   - levelName: The Duck
     buildIndex: 2
   - levelName: Pixel art :)
     buildIndex: 3
+  - levelName: Test Level 4
+    buildIndex: 4
   levelSelectPrefab: {fileID: 1342564724119936955, guid: 5a966476f981ad34bb9c3e3507e3d234,
     type: 3}
   levelSelectLayoutParent: {fileID: 3501712192085665184}

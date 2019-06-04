@@ -64,6 +64,7 @@ namespace ElementStudio.Pivotal
             timeRunning = false;
             currentLevelState = LevelState.Finished;
             Level.instance.playerReference.GetComponent<GravityPivotalController>().enabled = false;
+            InputRecorder.instance.SaveInputs();
             records.RecordTime(currentTiming, saveName, levelAuthor, communityLevel);
         }
 

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PixelArtTest.unity
     guid: f4cd1e5eeedee8e4a91766111f194bbe
+  - enabled: 1
+    path: Assets/Scenes/Test04.unity
+    guid: d2fcdeb1f0388454f86eba0c412dd6bc
   m_configObjects: {}

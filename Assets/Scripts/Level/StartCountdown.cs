@@ -9,7 +9,7 @@ namespace ElementStudio.Pivotal
         public GameUIManager gameUIManager;
         public GameObject playerReference;
 
-        private float timer = 5.0f;
+        private float timer = 3.0f;
         private float goDuration = 0.5f;
         private float currentTimer = 0f;
 

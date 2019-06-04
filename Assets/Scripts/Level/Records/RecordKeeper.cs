@@ -10,7 +10,7 @@ namespace ElementStudio.Pivotal
         public const string ingameRecordSavePath = "/Records/{0}.pivr";
         public const string communityRecordSavePath = "/Community/Records/{1}/{0}.pivr";
 
-        public LevelRecords records;
+        public LevelRecord records;
 
         public void RecordTime(float time, string saveName, string levelAuthor, bool communityLevel = false)
         {
@@ -27,7 +27,7 @@ namespace ElementStudio.Pivotal
 
         public void Load(string saveName, string levelAuthor, bool communityLevel = false)
         {
-            records = LevelRecords.Load(saveName, communityLevel, levelAuthor);
+            records = LevelRecord.Load(saveName, communityLevel, levelAuthor);
             if (float.IsNaN(records.recordTime))
             {
                 //We have not set a record for this level
@@ -36,12 +36,14 @@ namespace ElementStudio.Pivotal
     }
 
     [System.Serializable]
-    public struct LevelRecords
+    public struct LevelRecord
     {
         public float recordTime;
         public List<float> completionTimes;
+        public const string communityPath = "Community";
+        public const string ingamePath = "Records";
 
-        public static LevelRecords Load(string levelName, bool communityLevel = false, string levelAuthor = "")
+        public static LevelRecord Load(string levelName, bool communityLevel = false, string levelAuthor = "")
         {
             Debug.Log(Application.persistentDataPath);
             string path = Application.persistentDataPath + ((communityLevel) ? RecordKeeper.communityRecordSavePath : RecordKeeper.ingameRecordSavePath);
@@ -58,13 +60,13 @@ namespace ElementStudio.Pivotal
                     }
                 }
                 Debug.Log("Records file loaded at " + path);
-                return JsonUtility.FromJson<LevelRecords>(contents);
+                return JsonUtility.FromJson<LevelRecord>(contents);
             }
             catch (System.Exception e)
             {
                 Debug.Log("File not found! Here's the info you're gonna need: " + e);
                 File.Create(path);
-                return new LevelRecords(float.NaN);
+                return new LevelRecord(float.NaN);
             }
         }
 
@@ -82,13 +84,13 @@ namespace ElementStudio.Pivotal
             Debug.Log("Records file saved at " + path);
         }
 
-        public LevelRecords(float bestTime)
+        public LevelRecord(float bestTime)
         {
             recordTime = bestTime;
             completionTimes = new List<float>();
         }
 
-        public LevelRecords(float bestTime, List<float> completionTimes)
+        public LevelRecord(float bestTime, List<float> completionTimes)
         {
             recordTime = bestTime;
             this.completionTimes = completionTimes;

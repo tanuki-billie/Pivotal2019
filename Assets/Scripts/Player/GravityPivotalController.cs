@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using Prime31;
 
 namespace ElementStudio.Pivotal
@@ -61,10 +62,12 @@ namespace ElementStudio.Pivotal
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
+                    InputRecorder.instance.AddInput(InputType.Left, Level.instance.currentTiming);
                     StartRotation(-1);
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
+                    InputRecorder.instance.AddInput(InputType.Right, Level.instance.currentTiming);
                     StartRotation(1);
                 }
                 if (!_grounded)
@@ -88,6 +91,11 @@ namespace ElementStudio.Pivotal
                 _rotationProgress += Time.deltaTime;
                 float newAngle = Mathf.LerpAngle(originalRotation, targetRotation, _rotationProgress / rotationTime);
                 transform.localRotation = Quaternion.Euler(0, 0, newAngle);
+            }
+            if (Input.GetKey(KeyCode.R))
+            {
+                Scene current = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(current.buildIndex);
             }
         }
 
