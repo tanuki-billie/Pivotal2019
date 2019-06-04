@@ -9,6 +9,7 @@ namespace ElementStudio.Pivotal
     public class GravityPivotalController : MonoBehaviour
     {
         private CharacterController2D _characterController;
+        private InputHandler _inputHandler;
         private float _currentVelocity;
         private Vector2 _localVelocity;
         //If false, we are moving; if true, we are changing direction
@@ -53,6 +54,7 @@ namespace ElementStudio.Pivotal
         void Awake()
         {
             _characterController = GetComponent<CharacterController2D>();
+            _inputHandler = GetComponent<InputHandler>();
             SetupGravity();
         }
 
@@ -60,14 +62,12 @@ namespace ElementStudio.Pivotal
         {
             if (!_isChangingDirection)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (_inputHandler.Left())
                 {
-                    InputRecorder.instance.AddInput(InputType.Left, Level.instance.currentTiming);
                     StartRotation(-1);
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                else if (_inputHandler.Right())
                 {
-                    InputRecorder.instance.AddInput(InputType.Right, Level.instance.currentTiming);
                     StartRotation(1);
                 }
                 if (!_grounded)
@@ -92,7 +92,7 @@ namespace ElementStudio.Pivotal
                 float newAngle = Mathf.LerpAngle(originalRotation, targetRotation, _rotationProgress / rotationTime);
                 transform.localRotation = Quaternion.Euler(0, 0, newAngle);
             }
-            if (Input.GetKey(KeyCode.R))
+            if (_inputHandler.Restart())
             {
                 Scene current = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(current.buildIndex);

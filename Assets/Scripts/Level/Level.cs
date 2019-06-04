@@ -24,6 +24,7 @@ namespace ElementStudio.Pivotal
         [Header("Currenet State")]
         public LevelState currentLevelState = LevelState.Beginning;
         public bool isPaused = false;
+        public bool isReplay = false;
 
         [HideInInspector]
         public bool timeRunning = false;
@@ -39,7 +40,16 @@ namespace ElementStudio.Pivotal
         {
             if (instance != null) Destroy(this.gameObject);
             instance = this;
-            records.Load(saveName, levelAuthor, communityLevel);
+            if (PivotalManager.instance.isReplay)
+            {
+                isReplay = true;
+            }
+            else
+            {
+                //Records are only loaded in non-replay scenarios
+                records.Load(saveName, levelAuthor, communityLevel);
+            }
+
         }
 
         public void StartLevel()
@@ -48,6 +58,7 @@ namespace ElementStudio.Pivotal
             currentLevelState = LevelState.Playing;
             playerReference.GetComponent<GravityPivotalController>().enabled = true;
             playerReference.GetComponent<PlayerGrow>().enabled = false;
+            if (isReplay) playerReference.GetComponent<ReplayInputHandler>().StartPlaying();
             Camera.main.GetComponent<CameraFollow>().enabled = true;
         }
 
@@ -64,14 +75,13 @@ namespace ElementStudio.Pivotal
             timeRunning = false;
             currentLevelState = LevelState.Finished;
             Level.instance.playerReference.GetComponent<GravityPivotalController>().enabled = false;
-            InputRecorder.instance.SaveInputs();
-            records.RecordTime(currentTiming, saveName, levelAuthor, communityLevel);
-        }
+            if (!isReplay)
+            {
+                //Do not save replays and records if we're watching a replay!
+                InputRecorder.instance.SaveInputs();
+                records.RecordTime(currentTiming, saveName, levelAuthor, communityLevel);
+            }
 
-        //For debug purposes only
-        void OnGUI()
-        {
-            GUI.Box(new Rect(20, 20, 200, 24), "Current game state: " + currentLevelState);
         }
     }
 

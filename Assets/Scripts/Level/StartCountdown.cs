@@ -6,18 +6,28 @@ namespace ElementStudio.Pivotal
     public class StartCountdown : MonoBehaviour
     {
         public GameObject playerInstance;
+        public GameObject replayPlayerInstance;
         public GameUIManager gameUIManager;
         public GameObject playerReference;
 
         private float timer = 3.0f;
-        private float goDuration = 0.5f;
         private float currentTimer = 0f;
 
         void Awake()
         {
-            if (playerInstance == null)
+            if (Level.instance.isReplay)
             {
-                Debug.LogError("[StartCountdown] No prefab has been set for our player! Code Red!");
+                if (replayPlayerInstance == null)
+                {
+                    Debug.LogError("[StartCountdown] No prefab has been set for our replay player! Code Red!");
+                }
+            }
+            else
+            {
+                if (playerInstance == null)
+                {
+                    Debug.LogError("[StartCountdown] No prefab has been set for our player! Code Red!");
+                }
             }
             if (gameUIManager == null)
             {
@@ -25,7 +35,11 @@ namespace ElementStudio.Pivotal
                 gameUIManager = GameObject.Find("Game UI").GetComponent<GameUIManager>();
             }
             currentTimer = timer;
-            playerReference = Instantiate(playerInstance, Vector2.zero, Quaternion.identity);
+            playerReference = (Level.instance.isReplay) ? Instantiate(replayPlayerInstance, Vector2.zero, Quaternion.identity) : Instantiate(playerInstance, Vector2.zero, Quaternion.identity);
+            if (Level.instance.isReplay)
+            {
+                playerReference.GetComponent<ReplayInputHandler>().SetReplay(PivotalManager.instance.keeper.currentReplay);
+            }
 
         }
 

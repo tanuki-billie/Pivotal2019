@@ -9,6 +9,11 @@ namespace ElementStudio.Pivotal
     public class ReplayKeeper : MonoBehaviour
     {
         public Replay currentReplay;
+
+        public void SetPlayerReplay()
+        {
+            Level.instance.playerReference.GetComponent<ReplayInputHandler>().SetReplay(currentReplay);
+        }
     }
 
     [Serializable]
@@ -54,14 +59,15 @@ namespace ElementStudio.Pivotal
             }
         }
 
-        public static void GetReplayList()
+        public static List<string> GetReplayList()
         {
+            List<string> result = new List<string>();
             string path = Path.Combine(Application.persistentDataPath, replayPath);
             foreach (string file in Directory.GetFiles(path, "*" + extension, SearchOption.TopDirectoryOnly))
             {
-                Debug.Log(file);
-                Debug.Log(Path.GetFileNameWithoutExtension(file));
+                result.Add(Path.GetFileNameWithoutExtension(file));
             }
+            return (result);
         }
 
         public void Save(string replayName)

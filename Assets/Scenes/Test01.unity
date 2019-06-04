@@ -159,6 +159,7 @@ MonoBehaviour:
   records: {fileID: 296242518}
   currentLevelState: 0
   isPaused: 0
+  isReplay: 0
   timeRunning: 0
   newRecord: 0
   currentTiming: 0
@@ -190,6 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInstance: {fileID: 2584269258029717356, guid: d1cdcfc090e7bb543aaab1ae9bfe984a,
+    type: 3}
+  replayPlayerInstance: {fileID: 7903428028983850564, guid: 667dd79246ea4114d88463a99aed1612,
     type: 3}
   gameUIManager: {fileID: 1378968980}
   playerReference: {fileID: 0}

@@ -17,10 +17,13 @@ namespace ElementStudio.Pivotal
         void OnEnable()
         {
             timeText.text = string.Format("{0:0.00}s", Level.instance.currentTiming);
-            if (Level.instance.newRecord)
+            if (!Level.instance.isReplay)
             {
-                newRecordText.SetActive(true);
-                newRecordText.transform.DOShakePosition(1.0f);
+                if (Level.instance.newRecord)
+                {
+                    newRecordText.SetActive(true);
+                    newRecordText.transform.DOShakePosition(1.0f);
+                }
             }
         }
 
@@ -31,7 +34,14 @@ namespace ElementStudio.Pivotal
                 Scene current = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(current.buildIndex);
             }
-            else SceneManager.LoadScene(0);
+            else
+            {
+                if (Level.instance.isReplay)
+                {
+                    PivotalManager.instance.StopReplay();
+                }
+                SceneManager.LoadScene(0);
+            }
 
         }
     }

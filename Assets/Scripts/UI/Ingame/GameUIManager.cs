@@ -41,6 +41,7 @@ namespace ElementStudio.Pivotal
             float minutes = Mathf.Floor(recordTime / 60);
             float seconds = Mathf.Floor(recordTime % 60);
             float milliseconds = (recordTime - Mathf.Floor(recordTime)) * 100;
+            if (Level.instance.isReplay) return;
             recordTimer.gameObject.SetActive(true);
             recordTimer.text = string.Format(formatString, minutes, seconds, milliseconds);
         }

@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 296242515}
   - component: {fileID: 296242517}
   - component: {fileID: 296242518}
-  - component: {fileID: 296242519}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -160,6 +159,7 @@ MonoBehaviour:
   records: {fileID: 296242518}
   currentLevelState: 0
   isPaused: 0
+  isReplay: 0
   timeRunning: 0
   newRecord: 0
   currentTiming: 0
@@ -192,6 +192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInstance: {fileID: 2584269258029717356, guid: d1cdcfc090e7bb543aaab1ae9bfe984a,
     type: 3}
+  replayPlayerInstance: {fileID: 7903428028983850564, guid: 667dd79246ea4114d88463a99aed1612,
+    type: 3}
   gameUIManager: {fileID: 1378968980}
   playerReference: {fileID: 0}
 --- !u!114 &296242518
@@ -209,18 +211,6 @@ MonoBehaviour:
   records:
     recordTime: 0
     completionTimes: []
---- !u!114 &296242519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296242514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7757bbb757a817a43aaed4d18be8750f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &941804657
 GameObject:
   m_ObjectHideFlags: 0

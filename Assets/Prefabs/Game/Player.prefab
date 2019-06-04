@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 2584269258029717350}
   - component: {fileID: 701097163}
   - component: {fileID: 3007613274831227613}
-  - component: {fileID: 3438077776378209333}
+  - component: {fileID: 2332894939808803619}
+  - component: {fileID: 6137175856348068071}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -246,7 +247,7 @@ MonoBehaviour:
   trailMaxCount: 200
   trailFrequency: 60
   trailLifespan: 2
---- !u!114 &3438077776378209333
+--- !u!114 &2332894939808803619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +256,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2584269258029717356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb95a89c3f826e4ca7932dd30015f6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 022b700f0ec1b054f9613178c65674b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6137175856348068071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584269258029717356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a60760c780fd74885ef914da9568b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputsRecorded: []
