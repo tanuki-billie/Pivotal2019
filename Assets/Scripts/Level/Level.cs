@@ -23,6 +23,7 @@ namespace ElementStudio.Pivotal
 
         [Header("Currenet State")]
         public LevelState currentLevelState = LevelState.Beginning;
+        public GameObject pauseMenuPrefab;
         public bool isPaused = false;
         public bool isReplay = false;
 
@@ -35,6 +36,7 @@ namespace ElementStudio.Pivotal
 
         [HideInInspector]
         public GameObject playerReference;
+        private float timeRunningOnPause;
 
         void Awake()
         {
@@ -82,6 +84,31 @@ namespace ElementStudio.Pivotal
                 records.RecordTime(currentTiming, saveName, levelAuthor, communityLevel);
             }
 
+        }
+
+        public void PauseLevel()
+        {
+            isPaused = true;
+            timeRunningOnPause = currentTiming;
+            Time.timeScale = 0f;
+            timeRunning = false;
+            if (isReplay)
+            {
+                playerReference.GetComponent<ReplayInputHandler>().enabled = false;
+            }
+            Instantiate(pauseMenuPrefab, Vector3.zero, Quaternion.identity);
+        }
+
+        public void UnpauseLevel()
+        {
+            isPaused = false;
+            currentTiming = timeRunningOnPause;
+            if (isReplay)
+            {
+                playerReference.GetComponent<ReplayInputHandler>().enabled = true;
+            }
+            Time.timeScale = 1f;
+            timeRunning = true;
         }
     }
 

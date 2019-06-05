@@ -158,6 +158,8 @@ MonoBehaviour:
   medalCompletionTime: 0
   records: {fileID: 296242518}
   currentLevelState: 0
+  pauseMenuPrefab: {fileID: 2410618670698238611, guid: bb3881b6bf6a1c94dbb74786eb2df236,
+    type: 3}
   isPaused: 0
   isReplay: 0
   timeRunning: 0

@@ -60,42 +60,49 @@ namespace ElementStudio.Pivotal
 
         void Update()
         {
-            if (!_isChangingDirection)
+            if (!Level.instance.isPaused)
             {
-                if (_inputHandler.Left())
+                if (Input.GetKeyDown(KeyCode.Escape) && !Level.instance.isReplay)
                 {
-                    StartRotation(-1);
+                    Level.instance.PauseLevel();
                 }
-                else if (_inputHandler.Right())
+                if (!_isChangingDirection)
                 {
-                    StartRotation(1);
-                }
-                if (!_grounded)
-                {
-                    _currentVelocity += gravitySpeed * Time.deltaTime;
-                    if (_currentVelocity < terminalVelocity) _currentVelocity = terminalVelocity;
+                    if (_inputHandler.Left())
+                    {
+                        StartRotation(-1);
+                    }
+                    else if (_inputHandler.Right())
+                    {
+                        StartRotation(1);
+                    }
+                    if (!_grounded)
+                    {
+                        _currentVelocity += gravitySpeed * Time.deltaTime;
+                        if (_currentVelocity < terminalVelocity) _currentVelocity = terminalVelocity;
+                    }
+                    else
+                    {
+                        _currentVelocity = 0;
+                    }
+                    _localVelocity = new Vector2(0, _currentVelocity);
+                    _characterController.move(SetVelocityDirection(_localVelocity));
                 }
                 else
                 {
-                    _currentVelocity = 0;
+                    if (_rotationProgress >= rotationTime)
+                    {
+                        StopRotation();
+                    }
+                    _rotationProgress += Time.deltaTime;
+                    float newAngle = Mathf.LerpAngle(originalRotation, targetRotation, _rotationProgress / rotationTime);
+                    transform.localRotation = Quaternion.Euler(0, 0, newAngle);
                 }
-                _localVelocity = new Vector2(0, _currentVelocity);
-                _characterController.move(SetVelocityDirection(_localVelocity));
-            }
-            else
-            {
-                if (_rotationProgress >= rotationTime)
+                if (_inputHandler.Restart())
                 {
-                    StopRotation();
+                    Scene current = SceneManager.GetActiveScene();
+                    SceneManager.LoadScene(current.buildIndex);
                 }
-                _rotationProgress += Time.deltaTime;
-                float newAngle = Mathf.LerpAngle(originalRotation, targetRotation, _rotationProgress / rotationTime);
-                transform.localRotation = Quaternion.Euler(0, 0, newAngle);
-            }
-            if (_inputHandler.Restart())
-            {
-                Scene current = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(current.buildIndex);
             }
         }
 

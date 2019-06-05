@@ -17,6 +17,7 @@ namespace ElementStudio.Pivotal
 
         void Awake()
         {
+            Application.targetFrameRate = 60;
             if (instance != null) Destroy(this.gameObject);
             else instance = this;
             DontDestroyOnLoad(this.gameObject);

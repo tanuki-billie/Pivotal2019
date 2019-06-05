@@ -25,10 +25,10 @@ namespace ElementStudio.Pivotal
             inputsRecorded.Add(i);
         }
 
-        public void SaveInputs()
+        public void SaveInputs(string appendix = "")
         {
             Replay r = new Replay(inputsRecorded, SceneManager.GetActiveScene().buildIndex);
-            r.Save(DateTime.Now.ToString("yyyy-MM-dd hh_mm_ss tt"));
+            r.Save(DateTime.Now.ToString("yyyy-MM-dd HH_mm") + appendix);
         }
     }
     [Serializable]

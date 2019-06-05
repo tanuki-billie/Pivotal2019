@@ -20,22 +20,25 @@ namespace ElementStudio.Pivotal
 
         void Update()
         {
-            left = right = false;
-            if (replayNextInput >= currentReplay.recordedInputs.Count) return;
-            if (isPlaying)
+            if (!Level.instance.isPaused)
             {
-                float time = Level.instance.currentTiming;
-                if (time >= currentReplay.recordedInputs[replayNextInput].timestamp)
+                left = right = false;
+                if (replayNextInput >= currentReplay.recordedInputs.Count) return;
+                if (isPlaying)
                 {
-                    if (currentReplay.recordedInputs[replayNextInput].input == InputType.Left)
+                    float time = Level.instance.currentTiming;
+                    if (time >= currentReplay.recordedInputs[replayNextInput].timestamp)
                     {
-                        left = true;
+                        if (currentReplay.recordedInputs[replayNextInput].input == InputType.Left)
+                        {
+                            left = true;
+                        }
+                        else
+                        {
+                            right = true;
+                        }
+                        replayNextInput++;
                     }
-                    else
-                    {
-                        right = true;
-                    }
-                    replayNextInput++;
                 }
             }
         }

@@ -158,6 +158,8 @@ MonoBehaviour:
   medalCompletionTime: 0
   records: {fileID: 296242518}
   currentLevelState: 0
+  pauseMenuPrefab: {fileID: 2410618670698238611, guid: bb3881b6bf6a1c94dbb74786eb2df236,
+    type: 3}
   isPaused: 0
   isReplay: 0
   timeRunning: 0
@@ -43338,42 +43340,42 @@ PrefabInstance:
       propertyPath: currentLevel
       value: 
       objectReference: {fileID: 296242515}
-    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2851214114743675515, guid: 6cbc2ad1033090647a1a171d702fcc63,
+    - target: {fileID: 3817415709610588960, guid: 6cbc2ad1033090647a1a171d702fcc63,
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
