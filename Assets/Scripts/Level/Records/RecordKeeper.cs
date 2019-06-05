@@ -31,6 +31,7 @@ namespace ElementStudio.Pivotal
             if (float.IsNaN(records.recordTime))
             {
                 //We have not set a record for this level
+                Level.instance.hasNoRecord = true;
             }
         }
     }

@@ -6,18 +6,19 @@ namespace ElementStudio.Pivotal
     public class LevelSelect : MonoBehaviour
     {
         [SerializeField]
-        public List<LevelSelectOption> levelsToSelect = new List<LevelSelectOption>();
+        public List<LevelObject> levelsToSelect = new List<LevelObject>();
         protected List<GameObject> levelObjects = new List<GameObject>();
         public GameObject levelSelectPrefab;
         public Transform levelSelectLayoutParent;
 
         void OnEnable()
         {
-            foreach (LevelSelectOption i in levelsToSelect)
+            foreach (LevelObject i in levelsToSelect)
             {
                 //Iterate through each and create a new prefab
                 GameObject option = Instantiate(levelSelectPrefab, levelSelectLayoutParent.position, Quaternion.identity, levelSelectLayoutParent);
-                option.GetComponent<LevelChoice>().SetLevelName(i.levelName, i.buildIndex);
+                LevelRecord record = LevelRecord.Load(i.internalName, false, i.author);
+                option.GetComponent<LevelChoice>().SetChoice(i.levelTitle, record.recordTime, i.buildIndex);
                 levelObjects.Add(option);
             }
         }
@@ -35,19 +36,6 @@ namespace ElementStudio.Pivotal
                 Destroy(levelObjects[i]);
                 levelObjects.RemoveAt(i);
             }
-        }
-    }
-
-    [System.Serializable]
-    public struct LevelSelectOption
-    {
-        public string levelName;
-        public int buildIndex;
-
-        public LevelSelectOption(string name, int index)
-        {
-            levelName = name;
-            buildIndex = index;
         }
     }
 }

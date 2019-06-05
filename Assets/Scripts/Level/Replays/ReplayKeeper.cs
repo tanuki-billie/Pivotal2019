@@ -22,6 +22,7 @@ namespace ElementStudio.Pivotal
         public int level;
         public List<RecordInput> recordedInputs;
         public DateTime timestamp;
+        public int GameVersion;
         public const string extension = ".pivreplay";
         public const string replayPath = "Replays";
 

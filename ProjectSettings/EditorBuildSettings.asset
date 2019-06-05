@@ -9,15 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d78b496b621468f4594e5667c3cea311
   - enabled: 1
-    path: Assets/Scenes/Test01.unity
+    path: Assets/Scenes/Step.unity
     guid: c85c26997e6ca7245a6fdac7d1422926
   - enabled: 1
     path: Assets/Scenes/TheDuck.unity
     guid: 3c375290b1dbac24b9f7c2d9100e233b
   - enabled: 1
-    path: Assets/Scenes/PixelArtTest.unity
+    path: Assets/Scenes/Pixel Art.unity
     guid: f4cd1e5eeedee8e4a91766111f194bbe
   - enabled: 1
-    path: Assets/Scenes/Test04.unity
+    path: Assets/Scenes/Dark Fortress.unity
     guid: d2fcdeb1f0388454f86eba0c412dd6bc
+  - enabled: 1
+    path: Assets/Scenes/Seinfeld.unity
+    guid: d3aed44661c8aba4eb805c0c8a69c7d3
   m_configObjects: {}

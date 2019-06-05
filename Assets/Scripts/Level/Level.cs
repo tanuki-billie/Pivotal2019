@@ -6,18 +6,10 @@ namespace ElementStudio.Pivotal
     public class Level : MonoBehaviour
     {
         [Header("Basic Level Information")]
-        [Tooltip("The display name of the level.")]
-        public string displayName;
-        [Tooltip("The file name to save the level as")]
-        public string saveName;
-        [Tooltip("Who owns this level?")]
-        public string levelAuthor = "";
-        [Tooltip("Determines if this is a built-in level or a community level.")]
-        public bool communityLevel = false;
+        [Tooltip("The Level description file")]
+        public LevelObject levelObject;
 
         [Header("Times")]
-        [Tooltip("The time, in seconds, it would take to earn a medal for clearing this level.")]
-        public float medalCompletionTime = 0f;
         [Tooltip("The player's records for this level, containing their best time and all their completion times.")]
         public RecordKeeper records;
 
@@ -37,6 +29,7 @@ namespace ElementStudio.Pivotal
         [HideInInspector]
         public GameObject playerReference;
         private float timeRunningOnPause;
+        public bool hasNoRecord = false;
 
         void Awake()
         {
@@ -49,7 +42,7 @@ namespace ElementStudio.Pivotal
             else
             {
                 //Records are only loaded in non-replay scenarios
-                records.Load(saveName, levelAuthor, communityLevel);
+                records.Load(levelObject.internalName, levelObject.author, false);
             }
 
         }
@@ -81,7 +74,7 @@ namespace ElementStudio.Pivotal
             {
                 //Do not save replays and records if we're watching a replay!
                 InputRecorder.instance.SaveInputs();
-                records.RecordTime(currentTiming, saveName, levelAuthor, communityLevel);
+                records.RecordTime(currentTiming, levelObject.internalName, levelObject.author, false);
             }
 
         }

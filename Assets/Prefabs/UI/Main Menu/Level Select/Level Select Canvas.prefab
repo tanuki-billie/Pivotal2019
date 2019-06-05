@@ -383,14 +383,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsToSelect:
-  - levelName: Test Level 1
-    buildIndex: 1
-  - levelName: The Duck
-    buildIndex: 2
-  - levelName: Pixel art :)
-    buildIndex: 3
-  - levelName: Test Level 4
-    buildIndex: 4
+  - {fileID: 11400000, guid: 98b54d87a15c7d14c923c84428ca175c, type: 2}
+  - {fileID: 11400000, guid: 7de9768316e5217499b1281012373f53, type: 2}
+  - {fileID: 11400000, guid: 117726c09256da642b6ee3507c1390fe, type: 2}
+  - {fileID: 11400000, guid: 09fa0615756eaac4a92be7e59544c891, type: 2}
+  - {fileID: 11400000, guid: 2bab5716b8d6b0f4892ffc19bab45b3c, type: 2}
   levelSelectPrefab: {fileID: 1342564724119936955, guid: 5a966476f981ad34bb9c3e3507e3d234,
     type: 3}
   levelSelectLayoutParent: {fileID: 3501712192085665184}

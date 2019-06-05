@@ -8,6 +8,8 @@ namespace ElementStudio.Pivotal
     [RequireComponent(typeof(CharacterController2D))]
     public class GravityPivotalController : MonoBehaviour
     {
+        [HideInInspector]
+        public CameraFollow cam;
         private CharacterController2D _characterController;
         private InputHandler _inputHandler;
         private float _currentVelocity;
@@ -36,7 +38,7 @@ namespace ElementStudio.Pivotal
             }
         }
         private float originalRotation = 0f;
-        private float targetRotation = 0f;
+        public float targetRotation = 0f;
 
         //Our current direction. Defaults to down.
         public GravityDirection currentGravityDirection = GravityDirection.Down;
@@ -135,10 +137,11 @@ namespace ElementStudio.Pivotal
             _rotationProgress = 0;
             inputDirection = Mathf.Sign(inputDirection);
             GetGravityDirectionOnRotate(inputDirection);
-            _currentVelocity /= 2;
+            _currentVelocity /= 1.1f;
             originalRotation = transform.localEulerAngles.z;
             targetRotation = originalRotation + inputDirection * 90;
             _isChangingDirection = true;
+            cam.StartRotation();
         }
 
         void GetGravityDirectionOnRotate(float inputDirection)

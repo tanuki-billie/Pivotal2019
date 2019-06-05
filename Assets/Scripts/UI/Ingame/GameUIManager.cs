@@ -37,16 +37,16 @@ namespace ElementStudio.Pivotal
         void TurnOnTimer()
         {
             timerText.gameObject.SetActive(true);
+            if (Level.instance.isReplay || Level.instance.hasNoRecord) return;
             float recordTime = Level.instance.records.records.recordTime;
             float minutes = Mathf.Floor(recordTime / 60);
             float seconds = Mathf.Floor(recordTime % 60);
             float milliseconds = (recordTime - Mathf.Floor(recordTime)) * 100;
-            if (Level.instance.isReplay) return;
             recordTimer.gameObject.SetActive(true);
             recordTimer.text = string.Format(formatString, minutes, seconds, milliseconds);
         }
 
-        public void DoCountdown(RectTransform target, float scale = 1.2f)
+        public void DoCountdown(RectTransform target, float scale = 1.05f)
         {
             target.gameObject.SetActive(true);
             target.DOScale(new Vector3(scale, scale, 1f), 1f);

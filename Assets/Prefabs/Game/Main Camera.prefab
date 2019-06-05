@@ -98,3 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   offset: {x: 0, y: 0, z: -10}
+  timeToRotateCamera: 0.25

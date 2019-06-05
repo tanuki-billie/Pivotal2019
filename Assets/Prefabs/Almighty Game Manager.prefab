@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40076a10a602ead4fb2cd26167456d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuildVersion: 3
   isReplay: 0
   replayName: 
   keeper: {fileID: 0}
+  cameraTurnSpeed: 0.1
 --- !u!114 &8895737546860081863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +64,4 @@ MonoBehaviour:
   currentReplay:
     level: 0
     recordedInputs: []
+    GameVersion: 0
