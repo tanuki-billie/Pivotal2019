@@ -46,7 +46,7 @@ namespace ElementStudio.Pivotal
         public override bool Restart()
         {
             //We never want to restart during a replay, so we will always return true.
-            return false;
+            return Input.GetKeyDown(KeyCode.R);
         }
 
         public override bool Left()
