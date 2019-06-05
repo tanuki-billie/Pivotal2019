@@ -41,6 +41,10 @@ namespace ElementStudio.Pivotal
                     }
                 }
             }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }
         }
 
         public override bool Restart()
