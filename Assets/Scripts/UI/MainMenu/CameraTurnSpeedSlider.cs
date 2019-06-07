@@ -9,9 +9,10 @@ namespace ElementStudio.Pivotal
         void Awake()
         {
             _slider = GetComponent<Slider>();
+            _slider.onValueChanged.AddListener(delegate { DoChangeValue(); });
 
         }
-        void OnEnable()
+        void Start()
         {
             _slider.value = PivotalManager.instance.cameraTurnSpeed;
         }

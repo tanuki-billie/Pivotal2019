@@ -16,6 +16,7 @@ namespace ElementStudio.Pivotal
         [HideInInspector]
         public ReplayKeeper keeper;
         public float cameraTurnSpeed = 0.25f;
+        public bool gameStarted = false;
 
         void Awake()
         {
@@ -31,6 +32,11 @@ namespace ElementStudio.Pivotal
         void SetupReferences()
         {
             keeper = GetComponent<ReplayKeeper>();
+        }
+
+        void Update()
+        {
+            GetScreenShot();
         }
 
         public void StartReplay(string replayName)
@@ -73,6 +79,15 @@ namespace ElementStudio.Pivotal
             {
                 Directory.CreateDirectory(path);
                 Debug.Log("Created path " + path);
+            }
+        }
+
+        //Takes a screenshot on pressing F4
+        void GetScreenShot()
+        {
+            if (Input.GetKeyDown(KeyCode.F4))
+            {
+                ScreenCapture.CaptureScreenshot(System.DateTime.Now.ToString("ddMMyy HHmmss") + ".png", 2);
             }
         }
     }

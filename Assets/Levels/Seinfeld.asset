@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTitle: Jerry Seinfeld's Funland
   internalName: Seinfeld
+  levelDescription: '"Wait up!" That''s what kids say. They don''t say "wait", they
+    say "Wait up! Hey, wait up!" ''Cause when you''re little, your life is up. The
+    future is up. Everything you want is up. "Wait up! Hold up! Shut up! Mom, I''ll
+    clean up! Let me stay up!" Parents of course are just the opposite. Everything
+    is down. "Just calm down. Slow down. Come down here. Sit down. Put that down."
+    - Jerry Seinfeld'
+  screenshot: {fileID: 21300000, guid: 3eea4fb4664a1f54c82f0ac992f4d626, type: 3}
   author: snekery
   buildIndex: 5
   medalTime: 0

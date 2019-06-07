@@ -49,7 +49,6 @@ namespace ElementStudio.Pivotal
             }
             currentRotation = desiredRotation;
             rotationInProgress = false;
-            Debug.LogError("Is this code being reached?");
         }
     }
 }

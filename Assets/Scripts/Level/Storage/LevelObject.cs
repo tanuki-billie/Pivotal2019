@@ -7,6 +7,8 @@ namespace ElementStudio.Pivotal
     {
         public string levelTitle;
         public string internalName;
+        public string levelDescription;
+        public Sprite screenshot;
         public string author;
         public int buildIndex;
         public float medalTime;
