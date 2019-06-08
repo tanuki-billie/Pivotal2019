@@ -2293,6 +2293,7 @@ GameObject:
   - component: {fileID: 3817415709558100508}
   - component: {fileID: 3817415709558100509}
   - component: {fileID: 3817415709558100505}
+  - component: {fileID: 4645199523515967893}
   m_Layer: 5
   m_Name: Game UI
   m_TagString: Untagged
@@ -2402,6 +2403,18 @@ MonoBehaviour:
   completionMenu: {fileID: 4524999706785714734}
   timerText: {fileID: 3817415709610588966}
   recordTimer: {fileID: 2851214114743675515}
+--- !u!225 &4645199523515967893
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817415709558100482}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3817415709597492464
 GameObject:
   m_ObjectHideFlags: 0
