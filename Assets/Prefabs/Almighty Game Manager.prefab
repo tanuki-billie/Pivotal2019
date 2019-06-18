@@ -9,8 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2199370754589703261}
+  - component: {fileID: 1707977630}
   - component: {fileID: 2199370754589703260}
   - component: {fileID: 8895737546860081863}
+  - component: {fileID: 5202843770827367102}
+  - component: {fileID: 5217239716129754550}
   m_Layer: 0
   m_Name: Almighty Game Manager
   m_TagString: Untagged
@@ -32,6 +35,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1707977630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199370754589703262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a9b127a4d5f694cb9cd039a9362f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    video:
+      resolutionIndex: 18
+      useFullscreen: 1
+      useExclusiveFullscreen: 1
+      syncEveryFrame: 1
+      antiAliasingIndex: 4
+      usePostProcessing: 1
+    audio:
+      masterVolume: 1
+      musicVolume: 1
+      soundVolume: 1
+    game:
+      recordReplays: 1
+      cameraTurnSpeed: 0.1
+      username: Pivotal Gamer
 --- !u!114 &2199370754589703260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,11 +75,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40076a10a602ead4fb2cd26167456d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildVersion: 3
+  BuildVersion: 4
   isReplay: 0
   replayName: 
   keeper: {fileID: 0}
   cameraTurnSpeed: 0.1
+  gameStarted: 0
 --- !u!114 &8895737546860081863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,3 +97,45 @@ MonoBehaviour:
     level: 0
     recordedInputs: []
     GameVersion: 0
+--- !u!114 &5202843770827367102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199370754589703262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a07e1611adeae4d8a57f93a993c4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level:
+    uuid: 
+    levelSettings:
+      levelAuthor: 
+      levelTitle: 
+      spawnPositions: []
+      levelGoals: []
+      screenshot: 
+      medalCompletionTime: 0
+      medalLocations: []
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+      foregroundColor: {r: 0, g: 0, b: 0, a: 0}
+      isCommunityLevel: 0
+    tileData: []
+  isLoaded: 0
+  tiles: {fileID: 5217239716129754550}
+--- !u!114 &5217239716129754550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199370754589703262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826b317c50c72cb4aa55c40ab462a745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileDirectory:
+  - {fileID: 11400000, guid: f87a03d6cda4d1c49b77a92ae5ef1332, type: 2}

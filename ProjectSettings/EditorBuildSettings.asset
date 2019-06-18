@@ -6,24 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/NewMenuScene.unity
+    path: Assets/Scenes/Menu.unity
     guid: 4b7e0e1b4227a614682abe4b420053df
   - enabled: 1
-    path: Assets/Scenes/Step.unity
+    path: Assets/Scenes/New/Level.unity
+    guid: 8371438733f208b49800c78f3d06be5f
+  - enabled: 1
+    path: Assets/Scenes/New/Player.unity
+    guid: d3616a2791ca89e4ea13da49656b03eb
+  - enabled: 1
+    path: Assets/Scenes/New/Editor.unity
+    guid: 995b66bdeaf62314faf3fad8c6adef31
+  - enabled: 1
+    path: Assets/Scenes/Old Levels/Step.unity
     guid: c85c26997e6ca7245a6fdac7d1422926
   - enabled: 1
-    path: Assets/Scenes/TheDuck.unity
+    path: Assets/Scenes/Old Levels/TheDuck.unity
     guid: 3c375290b1dbac24b9f7c2d9100e233b
   - enabled: 1
-    path: Assets/Scenes/Pixel Art.unity
+    path: Assets/Scenes/Old Levels/Pixel Art.unity
     guid: f4cd1e5eeedee8e4a91766111f194bbe
   - enabled: 1
-    path: Assets/Scenes/Dark Fortress.unity
+    path: Assets/Scenes/Old Levels/Dark Fortress.unity
     guid: d2fcdeb1f0388454f86eba0c412dd6bc
   - enabled: 1
-    path: Assets/Scenes/Seinfeld.unity
+    path: Assets/Scenes/Old Levels/Seinfeld.unity
     guid: d3aed44661c8aba4eb805c0c8a69c7d3
   - enabled: 1
-    path: Assets/Scenes/TheSwitch.unity
+    path: Assets/Scenes/Old Levels/TheSwitch.unity
     guid: 07b18936aba76ad45b33d2f5111e4327
   m_configObjects: {}

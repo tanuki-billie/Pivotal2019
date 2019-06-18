@@ -15,7 +15,7 @@ namespace ElementStudio.Pivotal
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<GravityPivotalController>();
             player.cam = this;
-            timeToRotateCamera = PivotalManager.instance.cameraTurnSpeed;
+            timeToRotateCamera = Manager.NewPivotalManager.instance.settings.game.cameraTurnSpeed;
         }
 
         void LateUpdate()

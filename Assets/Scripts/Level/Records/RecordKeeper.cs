@@ -46,7 +46,6 @@ namespace ElementStudio.Pivotal
 
         public static LevelRecord Load(string levelName, bool communityLevel = false, string levelAuthor = "")
         {
-            Debug.Log(Application.persistentDataPath);
             string path = Application.persistentDataPath + ((communityLevel) ? RecordKeeper.communityRecordSavePath : RecordKeeper.ingameRecordSavePath);
             path = string.Format(path, levelName, levelAuthor);
             Debug.Log(path);

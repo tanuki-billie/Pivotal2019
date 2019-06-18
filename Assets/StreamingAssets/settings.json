@@ -1,0 +1,20 @@
+{
+    "video": {
+        "resolutionIndex": 0,
+        "useFullscreen": false,
+        "useExclusiveFullscreen": true,
+        "syncEveryFrame": true,
+        "antiAliasingIndex": 4,
+        "usePostProcessing": true
+    },
+    "audio": {
+        "masterVolume": 1.0,
+        "musicVolume": 1.0,
+        "soundVolume": 1.0
+    },
+    "game": {
+        "recordReplays": true,
+        "cameraTurnSpeed": 0.10000000149011612,
+        "username": "Pivotal Gamer"
+    }
+}

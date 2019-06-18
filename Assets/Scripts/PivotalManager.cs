@@ -8,20 +8,16 @@ namespace ElementStudio.Pivotal
     {
         [Header("Basic")]
         public static PivotalManager instance;
-        public int BuildVersion = 3;
 
         [Header("Replay State")]
         public bool isReplay = false;
         public string replayName = "";
         [HideInInspector]
         public ReplayKeeper keeper;
-        public float cameraTurnSpeed = 0.25f;
         public bool gameStarted = false;
 
         void Awake()
         {
-            cameraTurnSpeed = PlayerPrefs.GetFloat("CameraTurnSpeed", 0.1f);
-            Application.targetFrameRate = 60;
             if (instance != null) Destroy(this.gameObject);
             else instance = this;
             DontDestroyOnLoad(this.gameObject);
