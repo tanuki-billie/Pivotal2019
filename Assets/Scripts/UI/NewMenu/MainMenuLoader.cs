@@ -1,4 +1,5 @@
 using UnityEngine;
+using ElementStudio.Pivotal.Manager;
 
 namespace ElementStudio.Pivotal.Menu
 {
@@ -9,16 +10,16 @@ namespace ElementStudio.Pivotal.Menu
         public PressAnyKey pakReference;
         public MenuStateManager managerToSetup;
 
+        //Get menu state manager
         void Awake()
         {
             _manager = GetComponent<MenuStateManager>();
-            //TODO: Implement New Pivotal Game Manager that lets us determine if the game is already loaded
-
         }
 
+        //Check if game has been loaded
         void Start()
         {
-            gameAlreadyLoaded = PivotalManager.instance.gameStarted;
+            gameAlreadyLoaded = PivotalManager.instance.hasGameStarted;
             if (gameAlreadyLoaded)
             {
                 pakReference.onPressAnyKey.Invoke();
@@ -27,7 +28,7 @@ namespace ElementStudio.Pivotal.Menu
             else
             {
                 _manager.StartMenu();
-                PivotalManager.instance.gameStarted = true;
+                PivotalManager.instance.hasGameStarted = true;
             }
         }
     }

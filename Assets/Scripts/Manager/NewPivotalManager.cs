@@ -4,12 +4,15 @@ using ElementStudio.Pivotal.Levels;
 
 namespace ElementStudio.Pivotal.Manager
 {
-    public class NewPivotalManager : MonoBehaviour
+    public class PivotalManager : MonoBehaviour
     {
         //Static reference for singleton behavior
-        public static NewPivotalManager instance;
+        public static PivotalManager instance;
         //Our settings file that is loaded.
         public PivotalSettings settings;
+
+        //Bool to check if we have started the game
+        public bool hasGameStarted = false;
 
         //Setup our singleton and load our settings.
         void Awake()
@@ -47,6 +50,12 @@ namespace ElementStudio.Pivotal.Manager
         {
             LevelManager.instance.mode = mode;
             LevelManager.instance.LoadNewLevel(isCommunityLevel);
+        }
+
+        //Function to load a replay of a level that exists on disk.
+        public void LoadReplay(string replayID)
+        {
+
         }
     }
 }

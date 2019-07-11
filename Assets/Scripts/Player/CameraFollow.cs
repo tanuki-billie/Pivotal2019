@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ElementStudio.Pivotal.Manager;
 
 namespace ElementStudio.Pivotal
 {
@@ -15,7 +16,7 @@ namespace ElementStudio.Pivotal
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<GravityPivotalController>();
             player.cam = this;
-            timeToRotateCamera = Manager.NewPivotalManager.instance.settings.game.cameraTurnSpeed;
+            timeToRotateCamera = PivotalManager.instance.settings.game.cameraTurnSpeed;
         }
 
         void LateUpdate()

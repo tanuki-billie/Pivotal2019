@@ -1,5 +1,4 @@
 using UnityEngine;
-using ElementStudio.Pivotal;
 
 namespace ElementStudio.Pivotal
 {
@@ -38,7 +37,7 @@ namespace ElementStudio.Pivotal
             playerReference = (Level.instance.isReplay) ? Instantiate(replayPlayerInstance, Vector2.zero, Quaternion.identity) : Instantiate(playerInstance, Vector2.zero, Quaternion.identity);
             if (Level.instance.isReplay)
             {
-                playerReference.GetComponent<ReplayInputHandler>().SetReplay(PivotalManager.instance.keeper.currentReplay);
+                playerReference.GetComponent<ReplayInputHandler>().SetReplay(OldPivotalManager.instance.keeper.currentReplay);
             }
 
         }

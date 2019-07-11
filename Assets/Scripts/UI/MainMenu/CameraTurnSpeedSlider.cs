@@ -14,12 +14,12 @@ namespace ElementStudio.Pivotal
         }
         void Start()
         {
-            _slider.value = Manager.NewPivotalManager.instance.settings.game.cameraTurnSpeed;
+            _slider.value = Manager.PivotalManager.instance.settings.game.cameraTurnSpeed;
         }
 
         public void DoChangeValue()
         {
-            Manager.NewPivotalManager.instance.settings.game.cameraTurnSpeed = _slider.value;
+            Manager.PivotalManager.instance.settings.game.cameraTurnSpeed = _slider.value;
         }
     }
 }

@@ -88,11 +88,11 @@ namespace ElementStudio.Pivotal.Manager
 
         public static void ApplySettings()
         {
-            Resolution newResolution = Screen.resolutions[NewPivotalManager.instance.settings.video.resolutionIndex];
-            bool fs = NewPivotalManager.instance.settings.video.useFullscreen;
-            FullScreenMode fullscreenMode = (NewPivotalManager.instance.settings.video.useExclusiveFullscreen) ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.MaximizedWindow;
+            Resolution newResolution = Screen.resolutions[PivotalManager.instance.settings.video.resolutionIndex];
+            bool fs = PivotalManager.instance.settings.video.useFullscreen;
+            FullScreenMode fullscreenMode = (PivotalManager.instance.settings.video.useExclusiveFullscreen) ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.MaximizedWindow;
             fullscreenMode = (fs) ? fullscreenMode : FullScreenMode.Windowed;
-            int syncCount = (NewPivotalManager.instance.settings.video.syncEveryFrame) ? 1 : 0;
+            int syncCount = (PivotalManager.instance.settings.video.syncEveryFrame) ? 1 : 0;
 
             if (newResolution.width != Screen.currentResolution.width || newResolution.height != Screen.currentResolution.height || fullscreenMode != Screen.fullScreenMode)
             {
@@ -100,8 +100,8 @@ namespace ElementStudio.Pivotal.Manager
             }
 
             QualitySettings.vSyncCount = syncCount;
-            QualitySettings.antiAliasing = NewPivotalManager.instance.settings.video.antiAliasingIndex;
-            NewPivotalManager.instance.settings.Save();
+            QualitySettings.antiAliasing = PivotalManager.instance.settings.video.antiAliasingIndex;
+            PivotalManager.instance.settings.Save();
         }
     }
 

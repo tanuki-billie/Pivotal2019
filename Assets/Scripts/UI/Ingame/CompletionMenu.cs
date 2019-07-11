@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
@@ -38,7 +37,7 @@ namespace ElementStudio.Pivotal
             {
                 if (Level.instance.isReplay)
                 {
-                    PivotalManager.instance.StopReplay();
+                    OldPivotalManager.instance.StopReplay();
                 }
                 SceneManager.LoadScene(0);
             }

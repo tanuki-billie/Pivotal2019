@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace ElementStudio.Pivotal
 {
-    public class PivotalManager : MonoBehaviour
+    public class OldPivotalManager : MonoBehaviour
     {
         [Header("Basic")]
-        public static PivotalManager instance;
+        public static OldPivotalManager instance;
 
         [Header("Replay State")]
         public bool isReplay = false;

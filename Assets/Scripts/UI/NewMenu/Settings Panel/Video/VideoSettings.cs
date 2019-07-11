@@ -23,7 +23,7 @@ namespace ElementStudio.Pivotal.Menu
         {
             //Get available resolutions
             availableResolutions = Screen.resolutions;
-            int currentResolution = Manager.NewPivotalManager.instance.settings.video.resolutionIndex;
+            int currentResolution = Manager.PivotalManager.instance.settings.video.resolutionIndex;
             /*int currentResolution = System.Array.IndexOf(availableResolutions, Screen.currentResolution);
             if (PlayerPrefs.HasKey("Resolution"))
             {
@@ -42,30 +42,30 @@ namespace ElementStudio.Pivotal.Menu
             //Change the resolution in the settings once it's selected
             resolutionDropdown.onValueChanged.AddListener(delegate
             {
-                Manager.NewPivotalManager.instance.settings.video.resolutionIndex = resolutionDropdown.value;
+                Manager.PivotalManager.instance.settings.video.resolutionIndex = resolutionDropdown.value;
             });
             resolutionDropdown.value = currentResolution;
 
             //Fullscreen
             fullscreenToggle.onValueChanged.AddListener(delegate
             {
-                Manager.NewPivotalManager.instance.settings.video.useFullscreen = fullscreenToggle.isOn;
+                Manager.PivotalManager.instance.settings.video.useFullscreen = fullscreenToggle.isOn;
             });
-            fullscreenToggle.isOn = Manager.NewPivotalManager.instance.settings.video.useFullscreen;
+            fullscreenToggle.isOn = Manager.PivotalManager.instance.settings.video.useFullscreen;
 
             //Exclusive fullscreen
             exclusiveFullscreenToggle.onValueChanged.AddListener(delegate
             {
-                Manager.NewPivotalManager.instance.settings.video.useExclusiveFullscreen = exclusiveFullscreenToggle.isOn;
+                Manager.PivotalManager.instance.settings.video.useExclusiveFullscreen = exclusiveFullscreenToggle.isOn;
             });
-            exclusiveFullscreenToggle.isOn = Manager.NewPivotalManager.instance.settings.video.useExclusiveFullscreen;
+            exclusiveFullscreenToggle.isOn = Manager.PivotalManager.instance.settings.video.useExclusiveFullscreen;
 
             //Vertical sync
             vsyncToggle.onValueChanged.AddListener(delegate
             {
-                Manager.NewPivotalManager.instance.settings.video.syncEveryFrame = exclusiveFullscreenToggle.isOn;
+                Manager.PivotalManager.instance.settings.video.syncEveryFrame = exclusiveFullscreenToggle.isOn;
             });
-            vsyncToggle.isOn = Manager.NewPivotalManager.instance.settings.video.syncEveryFrame;
+            vsyncToggle.isOn = Manager.PivotalManager.instance.settings.video.syncEveryFrame;
         }
 
         string ResolutionToString(Resolution r)
@@ -75,7 +75,7 @@ namespace ElementStudio.Pivotal.Menu
 
         public void ApplySettings()
         {
-            Manager.NewPivotalManager.instance.ApplySettings();
+            Manager.VideoSettings.ApplySettings();
         }
     }
 }
