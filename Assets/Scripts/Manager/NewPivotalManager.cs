@@ -6,44 +6,43 @@ namespace ElementStudio.Pivotal.Manager
 {
     public class NewPivotalManager : MonoBehaviour
     {
-        //References
+        //Static reference for singleton behavior
         public static NewPivotalManager instance;
+        //Our settings file that is loaded.
         public PivotalSettings settings;
 
+        //Setup our singleton and load our settings.
         void Awake()
         {
             if (instance != null) Destroy(this.gameObject);
             instance = this;
             settings.Load();
-            ApplySettings();
         }
 
+        //DEBUG: Method to test level loading when game loads.
         void Start()
         {
             LoadLevel();
         }
 
-        public void ApplySettings()
-        {
-            VideoSettings.ApplySettings();
-        }
-
+        //Sets up directories for replays, levels, and associated records.
         void SetupDirectories()
         {
-            //Sets up directories for replays, levels, and associated records.
-            string path = Path.Combine(Application.persistentDataPath, Levels.Level.universalLevelPath);
+            string path = Path.Combine(Application.persistentDataPath, Level.universalLevelPath);
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
         }
 
+        //Function to load a level that exists on disk.
         public void LoadLevel(string levelID, bool isCommunityLevel = false, LevelMode mode = LevelMode.Play)
         {
             LevelManager.instance.mode = mode;
             LevelManager.instance.LoadLevel(levelID, isCommunityLevel);
         }
 
+        //Function to load a brand new level for editing purposes.
         public void LoadLevel(bool isCommunityLevel = true, LevelMode mode = LevelMode.Edit)
         {
             LevelManager.instance.mode = mode;

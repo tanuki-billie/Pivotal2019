@@ -6,15 +6,16 @@ namespace ElementStudio.Pivotal.Manager
     [System.Serializable]
     public class PivotalSettings
     {
-        public VideoSettingsFile video;
-        public AudioSettingsFile audio;
-        public GameSettingsFile game;
+        //Variables for all of our separate settings files. This includes video, audio, and game settings.
+        public VideoSettings video;
+        public AudioSettings audio;
+        public GameSettings game;
         const string fileName = "settings.json";
 
-        //Load settings
+        //Attempts to load settings from file. If this fails, then a new settings file is created.
         public void Load()
         {
-            Debug.Log("Creating new Pivotal Settings");
+            Debug.Log("Loading Pivotal settings");
             string path = Path.Combine(Application.persistentDataPath, fileName);
             string contents;
             try
@@ -34,16 +35,19 @@ namespace ElementStudio.Pivotal.Manager
             {
                 Initialize();
             }
+            VideoSettings.ApplySettings();
         }
 
+        //Function to create settings file.
         public void Initialize()
         {
-            video = new VideoSettingsFile(true);
-            audio = new AudioSettingsFile();
-            game = new GameSettingsFile();
+            video = new VideoSettings(true);
+            audio = new AudioSettings();
+            game = new GameSettings();
             Save();
         }
 
+        //Saves settings to disk.
         public void Save()
         {
             string contents = JsonUtility.ToJson(this, true);
@@ -53,7 +57,7 @@ namespace ElementStudio.Pivotal.Manager
     }
 
     [System.Serializable]
-    public class VideoSettingsFile
+    public class VideoSettings
     {
         public int resolutionIndex;
         public bool useFullscreen;
@@ -62,7 +66,7 @@ namespace ElementStudio.Pivotal.Manager
         public int antiAliasingIndex;
         public bool usePostProcessing;
 
-        public VideoSettingsFile(bool playing = false)
+        public VideoSettings(bool playing = false)
         {
             //Set default settings
             if (playing)
@@ -79,31 +83,49 @@ namespace ElementStudio.Pivotal.Manager
             syncEveryFrame = true;
             antiAliasingIndex = 4;
             usePostProcessing = true;
-            NewPivotalManager.instance.ApplySettings();
+            ApplySettings();
+        }
+
+        public static void ApplySettings()
+        {
+            Resolution newResolution = Screen.resolutions[NewPivotalManager.instance.settings.video.resolutionIndex];
+            bool fs = NewPivotalManager.instance.settings.video.useFullscreen;
+            FullScreenMode fullscreenMode = (NewPivotalManager.instance.settings.video.useExclusiveFullscreen) ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.MaximizedWindow;
+            fullscreenMode = (fs) ? fullscreenMode : FullScreenMode.Windowed;
+            int syncCount = (NewPivotalManager.instance.settings.video.syncEveryFrame) ? 1 : 0;
+
+            if (newResolution.width != Screen.currentResolution.width || newResolution.height != Screen.currentResolution.height || fullscreenMode != Screen.fullScreenMode)
+            {
+                Screen.SetResolution(newResolution.width, newResolution.height, fullscreenMode, newResolution.refreshRate);
+            }
+
+            QualitySettings.vSyncCount = syncCount;
+            QualitySettings.antiAliasing = NewPivotalManager.instance.settings.video.antiAliasingIndex;
+            NewPivotalManager.instance.settings.Save();
         }
     }
 
     [System.Serializable]
-    public class AudioSettingsFile
+    public class AudioSettings
     {
         public float masterVolume;
         public float musicVolume;
         public float soundVolume;
 
-        public AudioSettingsFile()
+        public AudioSettings()
         {
             masterVolume = musicVolume = soundVolume = 1.0f;
         }
     }
 
     [System.Serializable]
-    public class GameSettingsFile
+    public class GameSettings
     {
         public bool recordReplays;
         public float cameraTurnSpeed;
         public string username;
 
-        public GameSettingsFile()
+        public GameSettings()
         {
             recordReplays = true;
             cameraTurnSpeed = 0.1f;
