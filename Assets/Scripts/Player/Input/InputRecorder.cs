@@ -9,7 +9,7 @@ namespace ElementStudio.Pivotal
     [Serializable]
     public class InputRecorder : MonoBehaviour
     {
-        public List<RecordInput> inputsRecorded = new List<RecordInput>();
+        public List<ReplayInputRecording> inputsRecorded = new List<ReplayInputRecording>();
         [NonSerialized]
         public static InputRecorder instance;
 
@@ -19,30 +19,19 @@ namespace ElementStudio.Pivotal
             instance = this;
         }
 
-        public void AddInput(InputType input, float timestamp)
+        public void AddInput(InputType input, float timestamp, Vector2 position, GravityDirection orientation, float velocity)
         {
-            RecordInput i = new RecordInput(timestamp, input);
+            ReplayInputRecording i = new ReplayInputRecording(timestamp, input, position, orientation, velocity);
             inputsRecorded.Add(i);
         }
 
         public void SaveInputs(string appendix = "")
         {
-            Replay r = new Replay(inputsRecorded, SceneManager.GetActiveScene().buildIndex);
-            r.Save(DateTime.Now.ToString("yyyy-MM-dd HH_mm") + appendix);
+            Replay r = new Replay(inputsRecorded, Levels.LevelManager.instance.level.uuid);
+            r.Save(r.level + DateTime.Now.ToString("yyyy-MM-ddHH_mm") + appendix);
         }
     }
-    [Serializable]
-    public struct RecordInput
-    {
-        public float timestamp;
-        public InputType input;
 
-        public RecordInput(float timestamp, InputType input)
-        {
-            this.timestamp = timestamp;
-            this.input = input;
-        }
-    }
     public enum InputType
     {
         Left,

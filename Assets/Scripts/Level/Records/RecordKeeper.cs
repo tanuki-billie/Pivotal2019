@@ -10,30 +10,32 @@ namespace ElementStudio.Pivotal
         public const string ingameRecordSavePath = "/Records/{0}.pivr";
         public const string communityRecordSavePath = "/Community/Records/{1}/{0}.pivr";
 
-        public LevelRecord records;
+        public LevelRecord record;
 
+        /*
         public void RecordTime(float time, string saveName, string levelAuthor, bool communityLevel = false)
         {
-            records.completionTimes.Add(time);
+            record.completionTimes.Add(time);
             Debug.Log("New entry! Record: " + time + "s");
-            if (float.IsNaN(records.recordTime) || time < records.recordTime)
+            if (float.IsNaN(record.recordTime) || time < record.recordTime)
             {
-                records.recordTime = time;
+                record.recordTime = time;
                 Debug.Log("New record! Record: " + time + "s");
                 Level.instance.newRecord = true;
             }
-            records.Save(saveName, communityLevel, levelAuthor);
+            record.Save(saveName, communityLevel, levelAuthor);
         }
 
         public void Load(string saveName, string levelAuthor, bool communityLevel = false)
         {
-            records = LevelRecord.Load(saveName, communityLevel, levelAuthor);
-            if (float.IsNaN(records.recordTime))
+            record = LevelRecord.Load(saveName, communityLevel, levelAuthor);
+            if (float.IsNaN(record.recordTime))
             {
                 //We have not set a record for this level
                 Level.instance.hasNoRecord = true;
             }
         }
+        */
     }
 
     [System.Serializable]

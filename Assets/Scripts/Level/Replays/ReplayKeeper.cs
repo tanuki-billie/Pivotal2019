@@ -9,24 +9,19 @@ namespace ElementStudio.Pivotal
     public class ReplayKeeper : MonoBehaviour
     {
         public Replay currentReplay;
-
-        public void SetPlayerReplay()
-        {
-            Level.instance.playerReference.GetComponent<ReplayInputHandler>().SetReplay(currentReplay);
-        }
     }
 
     [Serializable]
     public class Replay
     {
-        public int level;
-        public List<RecordInput> recordedInputs;
+        public string level;
+        public List<ReplayInputRecording> recordedInputs;
         public DateTime timestamp;
         public int GameVersion;
         public const string extension = ".pivreplay";
         public const string replayPath = "Replays";
 
-        public Replay(List<RecordInput> inputs, int scene)
+        public Replay(List<ReplayInputRecording> inputs, string scene)
         {
             level = scene;
             recordedInputs = inputs;
@@ -84,6 +79,25 @@ namespace ElementStudio.Pivotal
             }
             fs.Close();
             Debug.Log("Replay file saved at " + path);
+        }
+    }
+
+    [Serializable]
+    public struct ReplayInputRecording
+    {
+        public float timestamp;
+        public InputType input;
+        public Vector2 position;
+        public GravityDirection orientation;
+        public float velocity;
+
+        public ReplayInputRecording(float timestamp, InputType input, Vector2 position, GravityDirection orientation, float velocity)
+        {
+            this.timestamp = timestamp;
+            this.input = input;
+            this.position = position;
+            this.orientation = orientation;
+            this.velocity = velocity;
         }
     }
 }
