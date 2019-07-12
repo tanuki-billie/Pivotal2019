@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace ElementStudio.Pivotal.Levels
 {
+    //Class for managing level loading and changing game state from menu to level.
     public class LevelManager : MonoBehaviour
     {
         //Instance variable
@@ -37,7 +38,7 @@ namespace ElementStudio.Pivotal.Levels
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
 
-        //Called by the builder
+        //Called by the builder in order to load the level
         public void Load()
         {
             isLoaded = true;

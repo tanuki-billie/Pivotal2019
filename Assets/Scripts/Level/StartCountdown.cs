@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ElementStudio.Pivotal
 {
+    //We need to refactor this class quite a lot.
     public class StartCountdown : MonoBehaviour
     {
         public GameObject playerInstance;

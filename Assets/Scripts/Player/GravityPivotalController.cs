@@ -1,7 +1,7 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 using Prime31;
+using ElementStudio.Pivotal.Levels;
 
 namespace ElementStudio.Pivotal
 {
@@ -62,12 +62,8 @@ namespace ElementStudio.Pivotal
 
         void Update()
         {
-            if (!Level.instance.isPaused)
+            if (!LevelPlayer.instance.isPaused)
             {
-                if (Input.GetKeyDown(KeyCode.Escape) && !Level.instance.isReplay)
-                {
-                    Level.instance.PauseLevel();
-                }
                 if (!_isChangingDirection)
                 {
                     if (_inputHandler.Left())
