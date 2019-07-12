@@ -9,9 +9,13 @@ namespace ElementStudio.Pivotal.UI
         private Animator _animator;
         public bool open { get; private set; }
 
+        public void OnEnable()
+        {
+            OpenMenu();
+        }
+
         public void OpenMenu()
         {
-            gameObject.SetActive(true);
             _animator.SetTrigger(Animator.StringToHash("Open"));
             open = true;
         }
@@ -21,11 +25,18 @@ namespace ElementStudio.Pivotal.UI
             Debug.Log("Close signal received");
             _animator.SetTrigger(Animator.StringToHash("Close"));
             open = false;
+            //gameObject.SetActive(false);
         }
 
         public void OnDisable()
         {
             Debug.Log("Disabled signal received.");
+            gameObject.SetActive(false);
+        }
+
+        public void DoCleanup()
+        {
+            Debug.Log("Cleanup signal received.");
             gameObject.SetActive(false);
         }
 

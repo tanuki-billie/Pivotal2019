@@ -22,7 +22,6 @@ namespace ElementStudio.Pivotal.UI
                 menus[i].gameObject.SetActive(false);
             }
             menus[currentlySelected].gameObject.SetActive(true);
-            menus[currentlySelected].OpenMenu();
         }
 
         public void ChangeMenu(Menu newMenu)
@@ -30,7 +29,7 @@ namespace ElementStudio.Pivotal.UI
             int i = menus.IndexOf(newMenu);
             if (i == currentlySelected) return;
             menus[currentlySelected].CloseMenu();
-            menus[i].OpenMenu();
+            menus[i].gameObject.SetActive(true);
             currentlySelected = i;
         }
     }
