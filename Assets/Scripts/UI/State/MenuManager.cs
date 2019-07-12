@@ -1,0 +1,37 @@
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+
+namespace ElementStudio.Pivotal.UI
+{
+    //Class to manage menus and the such. Allows us to switch states and the like.
+    public class MenuManager : MonoBehaviour
+    {
+        public List<Menu> menus = new List<Menu>();
+        int currentlySelected = 0;
+
+        void Awake()
+        {
+            InitMenu();
+        }
+
+        public void InitMenu()
+        {
+            for (int i = 0; i < menus.Count; i++)
+            {
+                menus[i].gameObject.SetActive(false);
+            }
+            menus[currentlySelected].gameObject.SetActive(true);
+            menus[currentlySelected].OpenMenu();
+        }
+
+        public void ChangeMenu(Menu newMenu)
+        {
+            int i = menus.IndexOf(newMenu);
+            if (i == currentlySelected) return;
+            menus[currentlySelected].CloseMenu();
+            menus[i].OpenMenu();
+            currentlySelected = i;
+        }
+    }
+}
