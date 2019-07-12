@@ -8,11 +8,18 @@ namespace ElementStudio.Pivotal.Levels
     {
         //Singleton instance variable
         public static LevelPlayer instance;
+        LevelStarter starter = new LevelStarter();
 
         //Variables that might want to be kept track of.
         public float levelTime = 0f;    //The current timer of the level.
         public bool isPaused = false;   //Are we paused at the moment?
         public bool timeRunning = false;    //Is time running?
+        public LevelState currentState = LevelState.Beginning;
+
+        //Properties that we'll have to keep in mind
+        //TODO: Convert to properties
+        public bool isReplay = false;
+        public bool hasNoRecord = false;
 
         //Events and delegates for handling things such as level load, start, and finish
         public event Action LevelLoaded;
@@ -25,6 +32,10 @@ namespace ElementStudio.Pivotal.Levels
         {
             if (instance != null) Destroy(this.gameObject);
             instance = this;
+            LevelLoaded += () =>
+            {
+                starter.Start();
+            };
         }
 
         //We've loaded the level, it's fair to start playing the level now.
@@ -53,7 +64,7 @@ namespace ElementStudio.Pivotal.Levels
             if (LevelStarted != null) LevelStarted();
         }
 
-        protected void OnLevelFinished()
+        public void OnLevelFinished()
         {
             if (LevelFinished != null) LevelFinished();
         }
@@ -62,5 +73,12 @@ namespace ElementStudio.Pivotal.Levels
         {
             if (LevelPaused != null) LevelPaused(isPaused);
         }
+    }
+
+    public enum LevelState
+    {
+        Beginning,
+        Playing,
+        Finished
     }
 }

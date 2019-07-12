@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ElementStudio.Pivotal.Levels;
 
 namespace ElementStudio.Pivotal
 {
@@ -14,7 +15,7 @@ namespace ElementStudio.Pivotal
             if (other.tag == "Player")
             {
                 //It's time to end the level homeboy
-                Level.instance.CompleteLevel();
+                LevelPlayer.instance.OnLevelFinished();
             }
         }
     }
