@@ -8,6 +8,7 @@ namespace ElementStudio.Pivotal.UI
     public class MenuManager : MonoBehaviour
     {
         public List<Menu> menus = new List<Menu>();
+        public List<Toggle> tabs = new List<Toggle>();
         int currentlySelected = 0;
 
         void Awake()
