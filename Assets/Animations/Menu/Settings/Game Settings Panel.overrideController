@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Game Settings Panel
+  m_Controller: {fileID: 9100000, guid: 1301b53d0e3714347b83b28fd78c3f97, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ca06431a825d90f4b9bbf5a0fd710056, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 43b99b6448c715240a6ee35fe7f91331, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: de570a37015c5a742b7b44834d411949, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6e22d55aa91be0447b9c34237ea185c2, type: 2}

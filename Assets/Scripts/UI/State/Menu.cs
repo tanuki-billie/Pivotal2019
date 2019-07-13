@@ -11,18 +11,20 @@ namespace ElementStudio.Pivotal.UI
 
         public void OnEnable()
         {
+            GetAnimator();
             OpenMenu();
         }
 
         public void OpenMenu()
         {
+            if (_animator == null) GetAnimator();
             _animator.SetTrigger(Animator.StringToHash("Open"));
             open = true;
         }
 
         public void CloseMenu()
         {
-            Debug.Log("Close signal received");
+            if (_animator == null) GetAnimator();
             _animator.SetTrigger(Animator.StringToHash("Close"));
             open = false;
             //gameObject.SetActive(false);
@@ -30,17 +32,20 @@ namespace ElementStudio.Pivotal.UI
 
         public void OnDisable()
         {
-            Debug.Log("Disabled signal received.");
             gameObject.SetActive(false);
         }
 
         public void DoCleanup()
         {
-            Debug.Log("Cleanup signal received.");
             gameObject.SetActive(false);
         }
 
         void Awake()
+        {
+            GetAnimator();
+        }
+
+        void GetAnimator()
         {
             _animator = GetComponent<Animator>();
         }

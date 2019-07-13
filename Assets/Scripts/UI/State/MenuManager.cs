@@ -11,7 +11,7 @@ namespace ElementStudio.Pivotal.UI
         public List<Toggle> tabs = new List<Toggle>();
         int currentlySelected = 0;
 
-        void Awake()
+        void OnEnable()
         {
             InitMenu();
         }
@@ -23,6 +23,7 @@ namespace ElementStudio.Pivotal.UI
                 menus[i].gameObject.SetActive(false);
             }
             menus[currentlySelected].gameObject.SetActive(true);
+            tabs[currentlySelected].isOn = true;
         }
 
         public void ChangeMenu(Menu newMenu)
