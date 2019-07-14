@@ -10,6 +10,7 @@ namespace ElementStudio.Pivotal.Manager
         public static PivotalManager instance;
         //Our settings file that is loaded.
         public PivotalSettings settings;
+        //Our audio manager.
 
         //Bool to check if we have started the game
         public bool hasGameStarted = false;
