@@ -6,11 +6,14 @@ namespace ElementStudio.Pivotal.Manager
 {
     public class PivotalManager : MonoBehaviour
     {
+        //Version string
+        public static string gameVersion = "0.5.0 pre-alpha";
         //Static reference for singleton behavior
         public static PivotalManager instance;
         //Our settings file that is loaded.
         public PivotalSettings settings;
         //Our audio manager.
+        [HideInInspector] public Audio.AudioManager audioManager;
 
         //Bool to check if we have started the game
         public bool hasGameStarted = false;
@@ -21,12 +24,6 @@ namespace ElementStudio.Pivotal.Manager
             if (instance != null) Destroy(this.gameObject);
             instance = this;
             settings.Load();
-        }
-
-        //DEBUG: Method to test level loading when game loads.
-        void Start()
-        {
-            LoadLevel();
         }
 
         //Sets up directories for replays, levels, and associated records.

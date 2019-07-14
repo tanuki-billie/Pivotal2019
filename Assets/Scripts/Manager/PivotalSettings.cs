@@ -88,7 +88,15 @@ namespace ElementStudio.Pivotal.Manager
 
         public static void ApplySettings()
         {
-            Resolution newResolution = Screen.resolutions[PivotalManager.instance.settings.video.resolutionIndex];
+            Resolution newResolution;
+            try
+            {
+                newResolution = Screen.resolutions[PivotalManager.instance.settings.video.resolutionIndex];
+            }
+            catch (System.IndexOutOfRangeException e)
+            {
+                newResolution = Screen.resolutions[0];
+            }
             bool fs = PivotalManager.instance.settings.video.useFullscreen;
             FullScreenMode fullscreenMode = (PivotalManager.instance.settings.video.useExclusiveFullscreen) ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.MaximizedWindow;
             fullscreenMode = (fs) ? fullscreenMode : FullScreenMode.Windowed;
