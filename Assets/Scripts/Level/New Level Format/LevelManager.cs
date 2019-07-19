@@ -45,6 +45,12 @@ namespace ElementStudio.Pivotal.Levels
             builder.Load(level, mode);
         }
 
+        //Called by the editor in order to save the level
+        public void Save()
+        {
+
+        }
+
         public void UnloadLevel()
         {
             level = null;

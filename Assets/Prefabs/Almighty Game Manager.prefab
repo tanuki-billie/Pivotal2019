@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2199370754589703262
+--- !u!1 &2428443943268608235
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2199370754589703261}
-  - component: {fileID: 1707977630}
-  - component: {fileID: 2199370754589703260}
-  - component: {fileID: 8895737546860081863}
-  - component: {fileID: 5202843770827367102}
-  - component: {fileID: 5217239716129754550}
+  - component: {fileID: 7253394248578164283}
+  - component: {fileID: 5125646631772583456}
+  - component: {fileID: 5125708802619500318}
+  - component: {fileID: 8822735811566605409}
+  - component: {fileID: 2428443943268608234}
   m_Layer: 0
   m_Name: Almighty Game Manager
   m_TagString: Untagged
@@ -21,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2199370754589703261
+--- !u!4 &7253394248578164283
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199370754589703262}
+  m_GameObject: {fileID: 2428443943268608235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,75 +34,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1707977630
+--- !u!114 &5125646631772583456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199370754589703262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12a9b127a4d5f694cb9cd039a9362f63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings:
-    video:
-      resolutionIndex: 18
-      useFullscreen: 1
-      useExclusiveFullscreen: 1
-      syncEveryFrame: 1
-      antiAliasingIndex: 4
-      usePostProcessing: 1
-    audio:
-      masterVolume: 1
-      musicVolume: 1
-      soundVolume: 1
-    game:
-      recordReplays: 1
-      cameraTurnSpeed: 0.1
-      username: Pivotal Gamer
---- !u!114 &2199370754589703260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199370754589703262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40076a10a602ead4fb2cd26167456d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BuildVersion: 4
-  isReplay: 0
-  replayName: 
-  keeper: {fileID: 0}
-  cameraTurnSpeed: 0.1
-  gameStarted: 0
---- !u!114 &8895737546860081863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199370754589703262}
+  m_GameObject: {fileID: 2428443943268608235}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99d664d033dbd7443b525a67b44b48a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentReplay:
-    level: 0
+    level: 
     recordedInputs: []
     GameVersion: 0
---- !u!114 &5202843770827367102
+--- !u!114 &5125708802619500318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199370754589703262}
+  m_GameObject: {fileID: 2428443943268608235}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9a07e1611adeae4d8a57f93a993c4bb, type: 3}
@@ -123,15 +76,17 @@ MonoBehaviour:
       foregroundColor: {r: 0, g: 0, b: 0, a: 0}
       isCommunityLevel: 0
     tileData: []
+  mode: 0
   isLoaded: 0
-  tiles: {fileID: 5217239716129754550}
---- !u!114 &5217239716129754550
+  tiles: {fileID: 8822735811566605409}
+  builder: {fileID: 0}
+--- !u!114 &8822735811566605409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199370754589703262}
+  m_GameObject: {fileID: 2428443943268608235}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 826b317c50c72cb4aa55c40ab462a745, type: 3}
@@ -139,3 +94,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileDirectory:
   - {fileID: 11400000, guid: f87a03d6cda4d1c49b77a92ae5ef1332, type: 2}
+--- !u!114 &2428443943268608234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428443943268608235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93acb5e4bdc0bf34a9c5f13211f39505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    video:
+      resolutionIndex: 0
+      useFullscreen: 0
+      useExclusiveFullscreen: 0
+      syncEveryFrame: 0
+      antiAliasingIndex: 0
+      usePostProcessing: 0
+    audio:
+      masterVolume: 1
+      musicVolume: 1
+      soundVolume: 1
+    game:
+      recordReplays: 1
+      cameraTurnSpeed: 0.1
+      username: Pivotal Gamer
+  audioManager: {fileID: 0}
+  hasGameStarted: 0

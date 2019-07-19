@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 namespace ElementStudio.Pivotal.Levels
 {
@@ -53,6 +54,12 @@ namespace ElementStudio.Pivotal.Levels
 
             tilemap.SetTiles(positions, tileData);
             SetForegroundColor();
+        }
+
+        public void SaveLevel(Level build)
+        {
+            LevelSettings settings = new LevelSettings(true);
+            List<Tile> tiles = new List<Tile>();
         }
 
         public void SetForegroundColor()
