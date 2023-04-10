@@ -1,4 +1,3 @@
 # Pivotal (2019 outdated version)
-This is an old version of Pivotal that was released in 2019 by myself. It was made 99.9% by me with a tiny fraction of help from another individual who has since left the project.
 
-This code still remains for archival purposes, and serves as merely a reference point for the new version of [Pivotal (released in 2021)](https://github.com/billymyers/Pivotal).
+This is an old version of Pivotal that I was developing in 2019. I had worked on this mostly alone with the help of a few friends from school. In order to keep things simple, I've taken the liberty of removing their contributions (as a matter of fact, 99.9 percent of the work that was done in this project was mine.)
