@@ -13194,14 +13194,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'Credits
 
-    <size=24><b>Billy Myers</b> - Programming Lead, Level Design Lead
-
-    <b>Ethan Aldrich</b> - Programming, Art
-
-    <b>Eric Dovbenco</b> - Art
-
-    <size=16>Other supporters I want to thank: Jacob, Davis, Angie, Brantley, Jackson,
-    Gabe, and Dylan</size></size>'
+    <size=24>all code and work done by Billy Myers</size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 211105fd6e4b1a74f9d22e5e12b70064, type: 2}
   m_sharedMaterial: {fileID: -3682503591271510093, guid: 211105fd6e4b1a74f9d22e5e12b70064,
