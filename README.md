@@ -4,8 +4,8 @@ This is an older version of Pivotal that was being worked on in 2019-early 2020.
 
 Originally, the project was mostly me with a few collaborators who helped with some small art details, but since these art assets weren't used in any capacity, and these other contributors are no longer working on the project anymore, I've taken the liberty of removing their contributions (which, in all honesty, wasn't much). That should me
 
-I won't be offering a playable version of this project, but if you're interested, [here's the latest version](https://billymyers.itch.io/pivotal).
+I won't be offering a playable version of this project, but if you're interested, [here's the latest version](https://tanuki-billie.itch.io/pivotal).
 
-Have fun! - Billy
+Have fun! - Billie
 
-Copyright 2019, 2020, 2023 Billy Myers.
+Copyright 2019, 2020, 2023 Billie Myers.
